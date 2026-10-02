@@ -13,7 +13,7 @@ export default async function handler(req, res) {
     return res.status(400).json({
       status: "error",
       message: "number parameter required",
-      developer: "Aditya",
+      developer: "Arpit",
       youtube: "https://youtube.com/@YourChannelHere"
     });
   }
@@ -22,7 +22,7 @@ export default async function handler(req, res) {
     return res.status(401).json({
       status: "error",
       message: "key required",
-      developer: "Aditya",
+      developer: "Arpit",
       youtube: "https://youtube.com/@YourChannelHere"
     });
   }
@@ -31,13 +31,13 @@ export default async function handler(req, res) {
     return res.status(401).json({
       status: "error",
       message: "invalid key",
-      developer: "Aditya"
+      developer: "Arpit"
     });
   }
 
   try {
     const upstream = await fetch(
-      `https://numberinfo-api-adibhai.vercel.app/api/number?number=${encodeURIComponent(number)}`
+      `https://numberinfo-api-arpitbhai.vercel.app/api/number?number=${encodeURIComponent(number)}`
     );
     const data = await upstream.json();
 
@@ -45,14 +45,14 @@ export default async function handler(req, res) {
       status: data.status || "success",
       number: data.number || number,
       data: data.data || null,
-      developer: "Aditya",
+      developer: "Arpit",
       youtube: "https://youtube.com/@YourChannelHere"
     });
   } catch (err) {
     return res.status(500).json({
       status: "error",
       message: "upstream fetch failed",
-      developer: "Aditya",
+      developer: "Arpit",
       youtube: "https://youtube.com/@YourChannelHere"
     });
   }
